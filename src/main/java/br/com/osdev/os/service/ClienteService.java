@@ -33,4 +33,11 @@ public class ClienteService {
 		repository.save(cliente);
 	}
 
+	public void deletaCliente(UUID idCliente) {
+		repository.findById(idCliente);
+		log.info("[idCliente] {}", idCliente);
+		repository.deleteById(idCliente);
+		
+	}
+
 }
