@@ -1,5 +1,5 @@
 package br.com.osdev.os.domain;
 
-public enum Sexo {
+public enum Genero {
 	FEMININO, MASCULINO;
 }

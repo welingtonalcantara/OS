@@ -13,6 +13,7 @@ import javax.validation.constraints.NotBlank;
 
 import org.hibernate.validator.constraints.br.CPF;
 
+import br.com.osdev.os.controller.ClienteRequest;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,9 +31,19 @@ public class Cliente {
 	@NotBlank
 	private String celular; 
 	@Enumerated(EnumType.STRING)
-	private Sexo sexo;               
+	private Genero genero;               
 	@CPF
 	@Column(unique = true)
 	private String cpf;
-
+	
+	public Cliente(ClienteRequest clienteRequest) {
+		this.nomeCompleto = clienteRequest.getNomeCompleto();
+		this.celular = clienteRequest.getCelular();
+		this.genero = clienteRequest.getGenero();
+		this.cpf = clienteRequest.getCpf();
+	}	
+	
+	
 }
+
+
