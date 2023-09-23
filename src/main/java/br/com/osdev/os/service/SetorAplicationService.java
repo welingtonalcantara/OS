@@ -1,7 +1,10 @@
 package br.com.osdev.os.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
+import br.com.osdev.os.controller.SetorListResponse;
 import br.com.osdev.os.controller.SetorRequest;
 import br.com.osdev.os.controller.SetorResponse;
 import br.com.osdev.os.domain.Setor;
@@ -23,6 +26,14 @@ public class SetorAplicationService implements SetorService {
 		return SetorResponse.builder()
 				.idsetor(setor.getIdSetor())
 				.build();	
+	}
+
+	@Override
+	public List<SetorListResponse> buscaTodosSetores() {
+		log.info("[inicia] SetorAplicationService - buscaTodosSetores");
+		List<Setor> setores = setorRepository.buscaTodosSetores();
+		log.info("[finaliza] SetorAplicationService - buscaTodosSetores");
+		return SetorListResponse.converte(setores);
 	}
 	
 

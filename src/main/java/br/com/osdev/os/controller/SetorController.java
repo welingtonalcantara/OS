@@ -1,5 +1,7 @@
 package br.com.osdev.os.controller;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.osdev.os.service.SetorAplicationService;
@@ -18,6 +20,14 @@ public class SetorController implements SetorApi{
 		SetorResponse setorCriado = setorService.criaSetor(setorRequest);
 		log.info("[finaliza] SetorController - criaSetor");
 		return setorCriado;
+	}
+
+	@Override
+	public List<SetorListResponse> getTodosSetores() {
+		log.info("[inicia] SetorController - getTodosSetores");
+		List<SetorListResponse> setores = setorService.buscaTodosSetores();
+		log.info("[finaliza] SetorController - getTodosSetores");
+		return setores;
 	}	
 	
 //	@Override

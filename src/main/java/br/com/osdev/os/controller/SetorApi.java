@@ -1,8 +1,11 @@
 package br.com.osdev.os.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,8 +19,13 @@ public interface SetorApi {
 	
 //	@GetMapping(value = "/buscanomesetor/{nomeSetor}")
 //	@ResponseStatus(code = HttpStatus.OK)
-//	public SetorResponse buscaSetorPorNome(@PathVariable String nomeSetor);	
-//	
+//	SetorResponse buscaSetorPorNome(@PathVariable String nomeSetor);	
+	
+	@GetMapping
+	@ResponseStatus(code = HttpStatus.OK) 
+	List<SetorListResponse> getTodosSetores();
+	
+	
 //	 @GetMapping(value = "{idSetor}")	 
 //	 @ResponseStatus(code = HttpStatus.OK) 
 //	 public SetorResponse buscaSetorAtravesId(@PathVariable UUID idSetor);	 
