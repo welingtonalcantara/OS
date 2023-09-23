@@ -1,8 +1,5 @@
 package br.com.osdev.os.controller;
 
-import javax.validation.Valid;
-
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.osdev.os.service.SetorAplicationService;
@@ -16,7 +13,7 @@ public class SetorController implements SetorApi{
 	private final SetorAplicationService setorService;
 	
 	@Override
-	public SetorResponse criaSetor(@Valid @RequestBody SetorRequest setorRequest) {
+	public SetorResponse criaSetor(SetorRequest setorRequest) {
 		log.info("[inicia] SetorController - criaSetor");
 		SetorResponse setorCriado = setorService.criaSetor(setorRequest);
 		log.info("[finaliza] SetorController - criaSetor");

@@ -2,11 +2,11 @@ package br.com.osdev.os.controller;
 
 import java.util.UUID;
 
-import lombok.Getter;
+import lombok.Builder;
 import lombok.Value;
 
-@Getter
 @Value
+@Builder
 public class SetorResponse {
 	private UUID idsetor;
 	//private String nomeSetor;

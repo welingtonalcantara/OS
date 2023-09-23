@@ -4,6 +4,8 @@ import org.springframework.stereotype.Service;
 
 import br.com.osdev.os.controller.SetorRequest;
 import br.com.osdev.os.controller.SetorResponse;
+import br.com.osdev.os.domain.Setor;
+import br.com.osdev.os.repository.SetorRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
@@ -11,18 +13,16 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @RequiredArgsConstructor	
 public class SetorAplicationService implements SetorService {
-	//private final SetorRepository setorRepository;
+	private final SetorRepository setorRepository;
 
 	@Override
 	public SetorResponse criaSetor(SetorRequest setorRequest) {	
 		log.info("[inicia] SetorAplicationService - criaSetor");
-		// novoSetor = new Setor(Setor);
-		//Setor setor = setorRepository.salva(new Setor(setorRequest));
+		Setor setor = setorRepository.salva(new Setor(setorRequest));
 		log.info("[finaliza] SetorAplicationService - criaSetor");
-//		return SetorResponse.builder()
-//				.idSetor(setor.getIdSetor())
-//				.build();
-		return null;
+		return SetorResponse.builder()
+				.idsetor(setor.getIdSetor())
+				.build();	
 	}
 	
 
