@@ -1,6 +1,7 @@
 package br.com.osdev.os.service;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
@@ -25,6 +26,8 @@ public class SetorAplicationService implements SetorService {
 		log.info("[finaliza] SetorAplicationService - criaSetor");
 		return SetorResponse.builder()
 				.idsetor(setor.getIdSetor())
+				.nomeSetor(setor.getNomeSetor())
+				.endereço(setor.getEndereço())
 				.build();	
 	}
 
@@ -35,23 +38,25 @@ public class SetorAplicationService implements SetorService {
 		log.info("[finaliza] SetorAplicationService - buscaTodosSetores");
 		return SetorListResponse.converte(setores);
 	}
-	
-
-
 
 //	public SetorResponse buscaSetorPorNome(String nomeSetor) {	
 //		log.info("[inicia] SetorService - buscaSetorPorNome");
 //		return new SetorResponse(setorRepository.findByNomeSetor(nomeSetor));	
 //		
 //	}
-//
-//	public static SetorResponse buscaSetorAtravesId(UUID idSetor) {
-//		log.info("[inicia] SetorService - buscaSetorAtravesId");
-//		Setor setor = setorRepository.buscaSetorAtravesId(idSetor);
-//		log.info("[finaliza] SetorService - buscaSetorAtravesId");
-//		return new SetorResponse(setor);
-//	}
-//
+	
+	@Override
+	public SetorResponse buscaSetorAtravesId(UUID idSetor) {
+		log.info("[inicia] SetorService - buscaSetorAtravesId");
+		Setor setor = setorRepository.buscaSetorAtravesId(idSetor);
+		log.info("[finaliza] SetorService - buscaSetorAtravesId");
+		return SetorResponse.builder()
+				.idsetor(setor.getIdSetor())
+				.nomeSetor(setor.getNomeSetor())
+				.endereço(setor.getEndereço())
+				.build();
+	}
+
 //	/*
 //	 * public void atualizaSetor(UUID idSetor, SetorAlteracaoRequest
 //	 * setorAlteracaoRequest) { log.info("[inicia] SetorService - atualizaSetor");

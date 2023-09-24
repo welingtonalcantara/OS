@@ -1,10 +1,12 @@
 package br.com.osdev.os.controller;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.osdev.os.service.SetorAplicationService;
+import br.com.osdev.os.service.SetorService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
@@ -35,17 +37,18 @@ public class SetorController implements SetorApi{
 //		log.info("[inicia] SetorController - buscaSetorPorNome");
 //		return setorService.buscaSetorPorNome(nomeSetor);
 //	}	
-//
-//	@Override
-//	public SetorResponse buscaSetorAtravesId(UUID idSetor) {
-//		log.info("[inicia] SetorController - buscaSetorAtravesId");
-//		log.info("[idCliente] {}", idSetor);
-//		SetorResponse setorResponse = 
-//				SetorService.buscaSetorAtravesId(idSetor);
-//		log.info("[finaliza] SetorController - buscaSetorAtravesId");
-//		return null;
-//	}
-//
+
+	@Override
+	public SetorResponse buscaSetorAtravesId(UUID idSetor) {
+		log.info("[inicia] SetorController - buscaSetorAtravesId");
+		log.info("[idCliente] {}", idSetor);
+		SetorResponse setorResponse = 
+				setorService.buscaSetorAtravesId(idSetor);
+		log.info("[finaliza] SetorController - buscaSetorAtravesId");
+		return setorResponse;
+	}
+
+
 //	@Override
 //	public void deletaSetor(@PathVariable UUID idSetor) {
 //		log.info("[inicia] SetorController - deletaSetor");

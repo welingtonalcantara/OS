@@ -8,9 +8,10 @@ import lombok.Value;
 @Value
 @Builder
 public class SetorResponse {
+	
 	private UUID idsetor;
-	//private String nomeSetor;
-	//private String endereço;
+	private String nomeSetor;
+	private String endereço;
 	
 //	public SetorResponse(Setor setor) {
 //		this.idsetor = setor.getIdSetor();
