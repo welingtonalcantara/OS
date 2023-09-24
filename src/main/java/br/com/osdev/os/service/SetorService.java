@@ -10,5 +10,6 @@ import br.com.osdev.os.controller.SetorResponse;
 public interface SetorService {
 	SetorResponse criaSetor(SetorRequest setorRequest);
 	List<SetorListResponse> buscaTodosSetores();
-	SetorResponse buscaSetorAtravesId(UUID idSetor);	
+	SetorResponse buscaSetorAtravesId(UUID idSetor);
+	void deletaSetorAtravesId(UUID idSetor);
 }

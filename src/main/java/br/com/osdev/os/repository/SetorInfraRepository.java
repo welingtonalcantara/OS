@@ -42,4 +42,11 @@ public class SetorInfraRepository implements SetorRepository {
 		return setor;
 	}
 
+	@Override
+	public void deletaSetor(Setor setor) {
+		log.info("[inicia] SetorInfraRepository - deletaSetor");
+		setorSpringDataJPARepository.delete(setor);
+		log.info("[inicia] SetorInfraRepository - deletaSetor");
+	}
+
 }

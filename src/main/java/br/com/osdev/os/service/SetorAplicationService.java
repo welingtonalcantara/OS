@@ -57,6 +57,14 @@ public class SetorAplicationService implements SetorService {
 				.build();
 	}
 
+	public void deletaSetorAtravesId(UUID idSetor) {
+		log.info("[inicia] SetorService - deletaSetorAtravesId");
+		Setor setor = setorRepository.buscaSetorAtravesId(idSetor);
+		setorRepository.deletaSetor(setor);
+		log.info("[finaliza] SetorService - deletaSetorAtravesId");	
+	}
+
+	
 //	/*
 //	 * public void atualizaSetor(UUID idSetor, SetorAlteracaoRequest
 //	 * setorAlteracaoRequest) { log.info("[inicia] SetorService - atualizaSetor");
@@ -66,15 +74,7 @@ public class SetorAplicationService implements SetorService {
 //	 * 
 //	 * log.info("[finaliza] SetorService - atualizaSetor"); }
 //	 */
-//
-//	public void deletaSetor(UUID idSetor) {
-//		log.info("[inicia] SetorService - deletaSetor");
-//		setorRepository.findById(idSetor);
-//		log.info("[idSetor] {}", idSetor);
-//		setorRepository.deleteById(idSetor);
-//		log.info("[finaliza] SetorService - deletaSetor");	
-//	}
-//
+
 //	public void atualizaSetor(UUID idSetor, SetorRequest setorRequest) {
 //		log.info("[inicia] SetorService - atualizaSetor");
 //		//Setor setor = repository.findById(idSetor);

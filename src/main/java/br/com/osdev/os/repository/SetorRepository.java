@@ -9,4 +9,5 @@ public interface SetorRepository {
 	Setor salva(Setor setor);
 	List<Setor> buscaTodosSetores();
 	Setor buscaSetorAtravesId(UUID idSetor);
+	void deletaSetor(Setor setor);
 }
