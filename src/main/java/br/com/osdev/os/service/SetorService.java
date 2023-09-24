@@ -3,6 +3,8 @@ package br.com.osdev.os.service;
 import java.util.List;
 import java.util.UUID;
 
+import javax.validation.Valid;
+
 import br.com.osdev.os.controller.SetorListResponse;
 import br.com.osdev.os.controller.SetorRequest;
 import br.com.osdev.os.controller.SetorResponse;
@@ -12,4 +14,5 @@ public interface SetorService {
 	List<SetorListResponse> buscaTodosSetores();
 	SetorResponse buscaSetorAtravesId(UUID idSetor);
 	void deletaSetorAtravesId(UUID idSetor);
+	void atualizaSetor(UUID idSetor, @Valid SetorRequest setorRequest);
 }

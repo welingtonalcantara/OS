@@ -3,6 +3,8 @@ package br.com.osdev.os.controller;
 import java.util.List;
 import java.util.UUID;
 
+import javax.validation.Valid;
+
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,12 +33,6 @@ public class SetorController implements SetorApi{
 		log.info("[finaliza] SetorController - getTodosSetores");
 		return setores;
 	}	
-	
-//	@Override
-//	public SetorResponse buscaSetorPorNome(@PathVariable String nomeSetor) {
-//		log.info("[inicia] SetorController - buscaSetorPorNome");
-//		return setorService.buscaSetorPorNome(nomeSetor);
-//	}	
 
 	@Override
 	public SetorResponse buscaSetorAtravesId(UUID idSetor) {
@@ -55,14 +51,13 @@ public class SetorController implements SetorApi{
 		log.info("[finaliza] SetorController - deletaSetorAtravesId");
 	}	
 
-
-//	@Override
-//	public void atualizaSetor(@PathVariable UUID idSetor, @Valid @RequestBody SetorRequest setorRequest) {
-//		log.info("[inicia] SetorController - atualizaSetor");
-//		log.info("[idCliente] {}", idSetor);
-//		setorService.atualizaSetor(idSetor, setorRequest);
-//		log.info("[finaliza] SetorController - atualizaSetor");
-//	}
+	@Override
+	public void atualizaSetor(@PathVariable UUID idSetor, @Valid SetorRequest setorRequest) {
+		log.info("[inicia] SetorController - atualizaSetor");
+		log.info("[idCliente] {}", idSetor);
+		setorService.atualizaSetor(idSetor, setorRequest);
+		log.info("[finaliza] SetorController - atualizaSetor");
+	}
 
 
 }

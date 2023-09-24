@@ -3,6 +3,8 @@ package br.com.osdev.os.service;
 import java.util.List;
 import java.util.UUID;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Service;
 
 import br.com.osdev.os.controller.SetorListResponse;
@@ -39,12 +41,6 @@ public class SetorAplicationService implements SetorService {
 		return SetorListResponse.converte(setores);
 	}
 
-//	public SetorResponse buscaSetorPorNome(String nomeSetor) {	
-//		log.info("[inicia] SetorService - buscaSetorPorNome");
-//		return new SetorResponse(setorRepository.findByNomeSetor(nomeSetor));	
-//		
-//	}
-	
 	@Override
 	public SetorResponse buscaSetorAtravesId(UUID idSetor) {
 		log.info("[inicia] SetorService - buscaSetorAtravesId");
@@ -62,9 +58,7 @@ public class SetorAplicationService implements SetorService {
 		Setor setor = setorRepository.buscaSetorAtravesId(idSetor);
 		setorRepository.deletaSetor(setor);
 		log.info("[finaliza] SetorService - deletaSetorAtravesId");	
-	}
-
-	
+	}	
 //	/*
 //	 * public void atualizaSetor(UUID idSetor, SetorAlteracaoRequest
 //	 * setorAlteracaoRequest) { log.info("[inicia] SetorService - atualizaSetor");
@@ -75,13 +69,13 @@ public class SetorAplicationService implements SetorService {
 //	 * log.info("[finaliza] SetorService - atualizaSetor"); }
 //	 */
 
-//	public void atualizaSetor(UUID idSetor, SetorRequest setorRequest) {
-//		log.info("[inicia] SetorService - atualizaSetor");
-//		//Setor setor = repository.findById(idSetor);
-//		log.info("[idSetor] {}", idSetor); 
-//		//repository.altera(setorRequest);		
-//		log.info("[finaliza] SetorService - atualizaSetor");		
-//	}
+	public void atualizaSetor(UUID idSetor, SetorRequest setorRequest) {
+		log.info("[inicia] SetorService - atualizaSetor");
+		Setor setor = setorRepository.buscaSetorAtravesId(idSetor);		
+		setor.altera(setorRequest);
+		setorRepository.salva(setor);
+		log.info("[finaliza] SetorService - atualizaSetor");		
+	}
 
 
 }

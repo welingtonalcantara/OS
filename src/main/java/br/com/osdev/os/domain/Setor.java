@@ -31,5 +31,10 @@ public class Setor {
 		this.endereço = setor.getEndereço();
 	}
 
+	public void altera(SetorRequest setorRequest) {
+		this.nomeSetor = setorRequest.getNomeSetor();
+		this.endereço = setorRequest.getEndereço();		
+	}
+
 	 
 }
