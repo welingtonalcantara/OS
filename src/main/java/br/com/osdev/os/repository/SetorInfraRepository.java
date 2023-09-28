@@ -15,12 +15,12 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @RequiredArgsConstructor
 public class SetorInfraRepository implements SetorRepository {
-	private final SetorSpringDataJPARepository setorSpringDataJPARepository;
+	private final SetorMongoSpringRepository setorMongoSpringRepository;
 
 	@Override
 	public Setor salva(Setor setor) {
 		log.info("[inicia] SetorInfraRepository - salva");
-		setorSpringDataJPARepository.save(setor);
+		setorMongoSpringRepository.save(setor);
 		log.info("[finaliza] SetorInfraRepository - salva");
 		return setor;
 	}
@@ -28,7 +28,7 @@ public class SetorInfraRepository implements SetorRepository {
 	@Override
 	public List<Setor> buscaTodosSetores() {
 		log.info("[inicia] SetorInfraRepository - buscaTodosSetores");
-		List<Setor> todosSetores = setorSpringDataJPARepository.findAll();
+		List<Setor> todosSetores = setorMongoSpringRepository.findAll();
 		log.info("[finish] SetorInfraRepository - buscaTodosSetores");
 		return todosSetores;
 	}
@@ -36,7 +36,7 @@ public class SetorInfraRepository implements SetorRepository {
 	@Override
 	public Setor buscaSetorAtravesId(UUID idSetor) {
 		log.info("[inicia] SetorInfraRepository - buscaSetorAtravesId");
-		Setor setor = setorSpringDataJPARepository.findById(idSetor)
+		Setor setor = setorMongoSpringRepository.findById(idSetor)
 				.orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Setor não encontrado!"));
 		log.info("[finaliza] SetorInfraRepository - buscaSetorAtravesId");
 		return setor;
@@ -45,7 +45,7 @@ public class SetorInfraRepository implements SetorRepository {
 	@Override
 	public void deletaSetor(Setor setor) {
 		log.info("[inicia] SetorInfraRepository - deletaSetor");
-		setorSpringDataJPARepository.delete(setor);
+		setorMongoSpringRepository.delete(setor);
 		log.info("[inicia] SetorInfraRepository - deletaSetor");
 	}
 

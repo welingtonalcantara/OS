@@ -2,25 +2,24 @@ package br.com.osdev.os.domain;
 
 import java.util.UUID;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import br.com.osdev.os.controller.SetorRequest;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
-@Entity
+@Document(collection = "Setor")
 public class Setor {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(columnDefinition = "uuid", name = "idSetor", updatable = false, unique = true, nullable = false)
+	//@GeneratedValue(strategy = GenerationType.AUTO)
+	//@Column(columnDefinition = "uuid", name = "idSetor", updatable = false, unique = true, nullable = false)
 	private UUID idSetor;
 	@NotBlank
 	private String nomeSetor;
