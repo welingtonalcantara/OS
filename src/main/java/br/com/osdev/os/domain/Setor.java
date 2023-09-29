@@ -26,6 +26,7 @@ public class Setor {
 	private String endereço;
 
 	public Setor(SetorRequest setor) {
+		this.idSetor = UUID.randomUUID();
 		this.nomeSetor = setor.getNomeSetor();
 		this.endereço = setor.getEndereço();
 	}
