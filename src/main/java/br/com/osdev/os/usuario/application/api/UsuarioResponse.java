@@ -1,5 +1,10 @@
 package br.com.osdev.os.usuario.application.api;
 
-public class UsuarioResponse {
+import java.util.UUID;
 
+import lombok.Value;
+
+@Value
+public class UsuarioResponse {
+	private UUID idUsuario;
 }
