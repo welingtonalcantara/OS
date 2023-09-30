@@ -1,4 +1,4 @@
-package br.com.osdev.os.repository;
+package br.com.osdev.os.setor.infra;
 
 import java.util.List;
 import java.util.UUID;
@@ -6,8 +6,9 @@ import java.util.UUID;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
-import br.com.osdev.os.domain.Setor;
 import br.com.osdev.os.handler.APIException;
+import br.com.osdev.os.setor.application.repository.SetorRepository;
+import br.com.osdev.os.setor.domain.Setor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 

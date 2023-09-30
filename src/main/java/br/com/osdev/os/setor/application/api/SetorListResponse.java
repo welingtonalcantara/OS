@@ -1,10 +1,10 @@
-package br.com.osdev.os.controller;
+package br.com.osdev.os.setor.application.api;
 
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
-import br.com.osdev.os.domain.Setor;
+import br.com.osdev.os.setor.domain.Setor;
 import lombok.Value;
 
 @Value

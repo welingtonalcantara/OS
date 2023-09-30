@@ -1,17 +1,15 @@
-package br.com.osdev.os.service;
+package br.com.osdev.os.setor.application.service;
 
 import java.util.List;
 import java.util.UUID;
 
-import javax.validation.Valid;
-
 import org.springframework.stereotype.Service;
 
-import br.com.osdev.os.controller.SetorListResponse;
-import br.com.osdev.os.controller.SetorRequest;
-import br.com.osdev.os.controller.SetorResponse;
-import br.com.osdev.os.domain.Setor;
-import br.com.osdev.os.repository.SetorRepository;
+import br.com.osdev.os.setor.application.api.SetorListResponse;
+import br.com.osdev.os.setor.application.api.SetorRequest;
+import br.com.osdev.os.setor.application.api.SetorResponse;
+import br.com.osdev.os.setor.application.repository.SetorRepository;
+import br.com.osdev.os.setor.domain.Setor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 

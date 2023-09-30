@@ -1,4 +1,4 @@
-package br.com.osdev.os.controller;
+package br.com.osdev.os.setor.application.api;
 
 import java.util.UUID;
 

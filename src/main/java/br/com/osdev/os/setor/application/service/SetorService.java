@@ -1,13 +1,13 @@
-package br.com.osdev.os.service;
+package br.com.osdev.os.setor.application.service;
 
 import java.util.List;
 import java.util.UUID;
 
 import javax.validation.Valid;
 
-import br.com.osdev.os.controller.SetorListResponse;
-import br.com.osdev.os.controller.SetorRequest;
-import br.com.osdev.os.controller.SetorResponse;
+import br.com.osdev.os.setor.application.api.SetorListResponse;
+import br.com.osdev.os.setor.application.api.SetorRequest;
+import br.com.osdev.os.setor.application.api.SetorResponse;
 
 public interface SetorService {
 	SetorResponse criaSetor(SetorRequest setorRequest);

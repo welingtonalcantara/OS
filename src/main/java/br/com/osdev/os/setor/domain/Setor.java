@@ -1,4 +1,4 @@
-package br.com.osdev.os.domain;
+package br.com.osdev.os.setor.domain;
 
 import java.util.UUID;
 
@@ -7,7 +7,7 @@ import javax.validation.constraints.NotBlank;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import br.com.osdev.os.controller.SetorRequest;
+import br.com.osdev.os.setor.application.api.SetorRequest;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
