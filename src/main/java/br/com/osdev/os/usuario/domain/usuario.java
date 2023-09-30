@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @Document(collection = "Usuario")
-public class usuario {
+public class Usuario {
 	@Id
 	private UUID idUsuario;
 	//@NotNull

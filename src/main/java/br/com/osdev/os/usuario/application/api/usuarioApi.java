@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/v1/setor/{idSetor}/usuario")
-public interface usuarioApi {
+public interface UsuarioApi {
 	@PostMapping
 	@ResponseStatus(code = HttpStatus.CREATED)
 	UsuarioResponse postUsuario(@PathVariable UUID idSetor,
