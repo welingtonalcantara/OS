@@ -4,19 +4,27 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
+import br.com.osdev.os.setor.application.service.SetorService;
 import br.com.osdev.os.usuario.application.api.UsuarioRequest;
 import br.com.osdev.os.usuario.application.api.UsuarioResponse;
+import br.com.osdev.os.usuario.domain.Usuario;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
 @Service
 @Log4j2
+@RequiredArgsConstructor
 public class UsuarioApplicationService implements UsuarioService {
+	private final SetorService setorService;
+	private final UsuarioRepository usuarioRepository;
 
 	@Override
 	public UsuarioResponse criaUsuario(UUID idSetor, UsuarioRequest usuarioRequest) {
 		log.info("[start] UsuarioApplicationService - criaUsuario");
+		setorService.buscaSetorAtravesId(idSetor);
+		Usuario usuario = usuarioRepository.salvaUsuario(new Usuario(idSetor, usuarioRequest));
 		log.info("[finish] UsuarioApplicationService - criaUsuario");
-		return null;
+		return new UsuarioResponse(usuario.getIdUsuario());
 	}
 
 }
