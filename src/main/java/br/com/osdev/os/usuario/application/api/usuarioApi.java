@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.osdev.os.usuario.application.service.UsuarioSetorListResponse;
+
 @RestController
 @RequestMapping("/v1/setor/{idSetor}/usuario")
 public interface UsuarioApi {
@@ -24,6 +26,6 @@ public interface UsuarioApi {
 	
 	@GetMapping
 	@ResponseStatus(code = HttpStatus.OK) 
-	List<UsuarioListResponse> getUsuariosDoSetorComId(@PathVariable UUID idSetor);	
+	List<UsuarioSetorListResponse> getUsuariosDoSetorComId(@PathVariable UUID idSetor);	
 
 }

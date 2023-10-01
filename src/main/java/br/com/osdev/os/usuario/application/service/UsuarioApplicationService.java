@@ -6,7 +6,6 @@ import java.util.UUID;
 import org.springframework.stereotype.Service;
 
 import br.com.osdev.os.setor.application.service.SetorService;
-import br.com.osdev.os.usuario.application.api.UsuarioListResponse;
 import br.com.osdev.os.usuario.application.api.UsuarioRequest;
 import br.com.osdev.os.usuario.application.api.UsuarioResponse;
 import br.com.osdev.os.usuario.domain.Usuario;
@@ -30,7 +29,7 @@ public class UsuarioApplicationService implements UsuarioService {
 	}
 
 	@Override
-	public List<UsuarioListResponse> buscaUsuariosDoSetorComID(UUID idSetor) {
+	public List<UsuarioSetorListResponse> buscaUsuariosDoSetorComID(UUID idSetor) {
 		log.info("[start] UsuarioApplicationService - buscaUsuariosDoSetorComID");
 		setorService.buscaSetorAtravesId(idSetor);
 		List<Usuario> usuariosDoSetor = usuarioRepository.buscaUsuariosDoSetorComID(idSetor);

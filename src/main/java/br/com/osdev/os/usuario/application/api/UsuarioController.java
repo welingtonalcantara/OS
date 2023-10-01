@@ -6,6 +6,7 @@ import java.util.UUID;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.osdev.os.usuario.application.service.UsuarioService;
+import br.com.osdev.os.usuario.application.service.UsuarioSetorListResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
@@ -26,10 +27,11 @@ public class UsuarioController implements UsuarioApi {
 	}
 
 	@Override
-	public List<UsuarioListResponse> getUsuariosDoSetorComId(UUID idSetor) {
+	public List<UsuarioSetorListResponse> getUsuariosDoSetorComId(UUID idSetor) {
 		log.info("[start] UsuarioController - getUsuariosDoSetorComId");
 		log.info("[idSetor] {}", idSetor);
-		List<UsuarioListResponse> usuariosDoSetor = usuarioService.buscaUsuariosDoSetorComID(idSetor);
+		List<UsuarioSetorListResponse> usuariosDoSetor = 
+				usuarioService.buscaUsuariosDoSetorComID(idSetor);
 		log.info("[finish] UsuarioController - getUsuariosDoSetorComId");
 		return usuariosDoSetor;
 	}
