@@ -27,8 +27,9 @@ public class UsuarioInfraRepository implements UsuarioRepository {
 	@Override
 	public List<Usuario> buscaUsuariosDoSetorComID(UUID idSetor) {
 		log.info("[start] UsuarioInfraRepository - buscaUsuariosDoSetorComID");
+		var usuarios = usuarioMogoSpringRepository.findByIdMeuSetor(idSetor);
 		log.info("[finish] UsuarioInfraRepository - buscaUsuariosDoSetorComID");
-		return null;
+		return usuarios;
 	}
 
 }
