@@ -1,5 +1,6 @@
 package br.com.osdev.os.usuario.application.api;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -16,12 +17,20 @@ public class UsuarioController implements UsuarioApi {
 
 	@Override
 	public UsuarioResponse postUsuario(UUID idSetor, UsuarioRequest usuarioRequest) {
-		log.info("[inicia] UsuarioController - postUsuario");
+		log.info("[start] UsuarioController - postUsuario");
 		log.info("[idSetor] {}", idSetor);
 		UsuarioResponse usuario = usuarioService.criaUsuario(idSetor, usuarioRequest);
-		log.info("[finaliza] UsuarioController - postUsuario");
+		log.info("[finish] UsuarioController - postUsuario");
 		//return new UsuarioResponse(usuario.getIdUsuario());
 		return usuario;
+	}
+
+	@Override
+	public List<UsuarioListResponse> getUsuariosDoSetorComId(UUID idSetor) {
+		log.info("[start] UsuarioController - getUsuariosDoSetorComId");
+		log.info("[idSetor] {}", idSetor);
+		log.info("[finish] UsuarioController - getUsuariosDoSetorComId");
+		return null;
 	}
 
 }
