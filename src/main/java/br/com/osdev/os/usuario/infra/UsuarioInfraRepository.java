@@ -1,5 +1,8 @@
 package br.com.osdev.os.usuario.infra;
 
+import java.util.List;
+import java.util.UUID;
+
 import org.springframework.stereotype.Repository;
 
 import br.com.osdev.os.usuario.application.service.UsuarioRepository;
@@ -19,6 +22,13 @@ public class UsuarioInfraRepository implements UsuarioRepository {
 		usuarioMogoSpringRepository.save(usuario);
 		log.info("[finish] UsuarioInfraRepository - salvaUsuario");
 		return usuario;
+	}
+
+	@Override
+	public List<Usuario> buscaUsuariosDoSetorComID(UUID idSetor) {
+		log.info("[start] UsuarioInfraRepository - buscaUsuariosDoSetorComID");
+		log.info("[finish] UsuarioInfraRepository - buscaUsuariosDoSetorComID");
+		return null;
 	}
 
 }

@@ -33,8 +33,9 @@ public class UsuarioApplicationService implements UsuarioService {
 	public List<UsuarioListResponse> buscaUsuariosDoSetorComID(UUID idSetor) {
 		log.info("[start] UsuarioApplicationService - buscaUsuariosDoSetorComID");
 		setorService.buscaSetorAtravesId(idSetor);
+		List<Usuario> usuariosDoSetor = usuarioRepository.buscaUsuariosDoSetorComID(idSetor);
 		log.info("[finish] UsuarioApplicationService - buscaUsuariosDoSetorComID");
-		return null;
+		return UsuarioSetorListResponse.converte(usuariosDoSetor);
 	}
 
 }
