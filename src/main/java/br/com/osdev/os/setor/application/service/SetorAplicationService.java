@@ -57,15 +57,6 @@ public class SetorAplicationService implements SetorService {
 		setorRepository.deletaSetor(setor);
 		log.info("[finaliza] SetorService - deletaSetorAtravesId");	
 	}	
-//	/*
-//	 * public void atualizaSetor(UUID idSetor, SetorAlteracaoRequest
-//	 * setorAlteracaoRequest) { log.info("[inicia] SetorService - atualizaSetor");
-//	 * Optional<Setor> setor = repository.findById(idSetor);
-//	 * log.info("[idSetor] {}", idSetor); setor.altera(setorAlteracaoRequest);
-//	 * repository.save(setor);
-//	 * 
-//	 * log.info("[finaliza] SetorService - atualizaSetor"); }
-//	 */
 
 	public void atualizaSetor(UUID idSetor, SetorRequest setorRequest) {
 		log.info("[inicia] SetorService - atualizaSetor");

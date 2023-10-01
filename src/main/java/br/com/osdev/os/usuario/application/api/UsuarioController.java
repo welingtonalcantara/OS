@@ -29,8 +29,9 @@ public class UsuarioController implements UsuarioApi {
 	public List<UsuarioListResponse> getUsuariosDoSetorComId(UUID idSetor) {
 		log.info("[start] UsuarioController - getUsuariosDoSetorComId");
 		log.info("[idSetor] {}", idSetor);
+		List<UsuarioListResponse> usuariosDoSetor = usuarioService.buscaUsuariosDoSetorComID(idSetor);
 		log.info("[finish] UsuarioController - getUsuariosDoSetorComId");
-		return null;
+		return usuariosDoSetor;
 	}
 
 }

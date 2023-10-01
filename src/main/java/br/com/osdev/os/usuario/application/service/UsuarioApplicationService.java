@@ -1,10 +1,12 @@
 package br.com.osdev.os.usuario.application.service;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
 import br.com.osdev.os.setor.application.service.SetorService;
+import br.com.osdev.os.usuario.application.api.UsuarioListResponse;
 import br.com.osdev.os.usuario.application.api.UsuarioRequest;
 import br.com.osdev.os.usuario.application.api.UsuarioResponse;
 import br.com.osdev.os.usuario.domain.Usuario;
@@ -25,6 +27,14 @@ public class UsuarioApplicationService implements UsuarioService {
 		Usuario usuario = usuarioRepository.salvaUsuario(new Usuario(idSetor, usuarioRequest));
 		log.info("[finish] UsuarioApplicationService - criaUsuario");
 		return new UsuarioResponse(usuario.getIdUsuario());
+	}
+
+	@Override
+	public List<UsuarioListResponse> buscaUsuariosDoSetorComID(UUID idSetor) {
+		log.info("[start] UsuarioApplicationService - buscaUsuariosDoSetorComID");
+		setorService.buscaSetorAtravesId(idSetor);
+		log.info("[finish] UsuarioApplicationService - buscaUsuariosDoSetorComID");
+		return null;
 	}
 
 }
