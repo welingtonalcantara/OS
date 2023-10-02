@@ -9,4 +9,6 @@ import br.com.osdev.os.usuario.application.api.UsuarioResponse;
 public interface UsuarioService {
 	UsuarioResponse criaUsuario(UUID idSetor, UsuarioRequest usuarioRequest);
 	List<UsuarioSetorListResponse> buscaUsuariosDoSetorComID(UUID idSetor);
+	UsuarioResponse buscaUsuarioPorId(UUID idUsuario);
+	void deletaUsuario(UUID idUsuario);	
 }

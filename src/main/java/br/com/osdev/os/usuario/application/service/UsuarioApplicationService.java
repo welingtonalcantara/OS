@@ -25,7 +25,10 @@ public class UsuarioApplicationService implements UsuarioService {
 		setorService.buscaSetorAtravesId(idSetor);
 		Usuario usuario = usuarioRepository.salvaUsuario(new Usuario(idSetor, usuarioRequest));
 		log.info("[finish] UsuarioApplicationService - criaUsuario");
-		return new UsuarioResponse(usuario.getIdUsuario());
+		return UsuarioResponse.builder()
+				.idUsuario(usuario.getIdUsuario())			
+				.build();
+
 	}
 
 	@Override
@@ -35,6 +38,24 @@ public class UsuarioApplicationService implements UsuarioService {
 		List<Usuario> usuariosDoSetor = usuarioRepository.buscaUsuariosDoSetorComID(idSetor);
 		log.info("[finish] UsuarioApplicationService - buscaUsuariosDoSetorComID");
 		return UsuarioSetorListResponse.converte(usuariosDoSetor);
+	}	
+
+	@Override
+	public UsuarioResponse buscaUsuarioPorId(UUID idUsuario) {
+		log.info("[start] UsuarioApplicationService - buscaUsuarioPorId");
+		log.info("[idUsuario] {}", idUsuario);
+		Usuario usuario = usuarioRepository.buscaUsuarioPeloId(idUsuario);
+		log.info("[finish] UsuarioApplicationService - buscaUsuarioPorId");
+		return UsuarioResponse.builder()
+				.idUsuario(usuario.getIdUsuario())				
+				.build();
 	}
+
+	@Override
+	public void deletaUsuario(UUID idUsuario) {
+		log.info("[start] UsuarioApplicationService - deletaUsuario");
+		log.info("[finish] UsuarioApplicationService - deletaUsuario");
+	}
+
 
 }

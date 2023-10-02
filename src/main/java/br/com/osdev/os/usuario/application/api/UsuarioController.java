@@ -35,5 +35,21 @@ public class UsuarioController implements UsuarioApi {
 		log.info("[finish] UsuarioController - getUsuariosDoSetorComId");
 		return usuariosDoSetor;
 	}
+	
+	@Override
+	public UsuarioResponse buscaUsuarioAtravesId(UUID idUsuario) {
+		log.info("[start] UsuarioController - buscaUsuarioAtravesId");
+		UsuarioResponse usuario = usuarioService.buscaUsuarioPorId(idUsuario);
+		log.info("[finish] UsuarioController - buscaUsuarioAtravesId");
+		return usuario;
+	}
 
+	@Override
+	public void deletaUsuarioAtravesId(UUID idUsuario) {
+		log.info("[start] UsuarioController - deletaUsuarioAtravesId");
+		usuarioService.deletaUsuario(idUsuario);
+		log.info("[finish] UsuarioController - deletaUsuarioAtravesId");
+	}
+
+	
 }

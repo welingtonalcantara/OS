@@ -27,7 +27,7 @@ public class SetorAplicationService implements SetorService {
 		return SetorResponse.builder()
 				.idsetor(setor.getIdSetor())
 				.nomeSetor(setor.getNomeSetor())
-				.endereço(setor.getEndereço())
+				.endereço(setor.getEndereco())
 				.build();	
 	}
 
@@ -47,7 +47,7 @@ public class SetorAplicationService implements SetorService {
 		return SetorResponse.builder()
 				.idsetor(setor.getIdSetor())
 				.nomeSetor(setor.getNomeSetor())
-				.endereço(setor.getEndereço())
+				.endereço(setor.getEndereco())
 				.build();
 	}
 

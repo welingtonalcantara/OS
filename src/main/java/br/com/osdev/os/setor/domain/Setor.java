@@ -23,17 +23,17 @@ public class Setor {
 	private UUID idSetor;
 	@NotBlank
 	private String nomeSetor;
-	private String endereço;
+	private String endereco;
 
 	public Setor(SetorRequest setor) {
 		this.idSetor = UUID.randomUUID();
 		this.nomeSetor = setor.getNomeSetor();
-		this.endereço = setor.getEndereço();
+		this.endereco = setor.getEndereco();
 	}
 
 	public void altera(SetorRequest setorRequest) {
 		this.nomeSetor = setorRequest.getNomeSetor();
-		this.endereço = setorRequest.getEndereço();		
+		this.endereco = setorRequest.getEndereco();		
 	}
 
 	 
