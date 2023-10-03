@@ -33,8 +33,8 @@ public interface UsuarioApi {
 	@ResponseStatus(code = HttpStatus.OK) 
 	UsuarioResponse buscaUsuarioAtravesId(@PathVariable UUID idUsuario);
 	
-	@DeleteMapping(value = "/usuario/{idUsuarior}")
-	@ResponseStatus(code = HttpStatus.NO_CONTENT)
-	void deletaUsuarioAtravesId(@PathVariable UUID idUsuario);	
+//	@DeleteMapping(value = "/usuario/{idUsuarior}")
+//	@ResponseStatus(code = HttpStatus.NO_CONTENT)
+//	void deletaUsuarioAtravesId(@PathVariable UUID idUsuario);	
 
 }

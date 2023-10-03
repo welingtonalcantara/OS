@@ -7,7 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
 import br.com.osdev.os.handler.APIException;
-import br.com.osdev.os.setor.domain.Setor;
 import br.com.osdev.os.usuario.application.service.UsuarioRepository;
 import br.com.osdev.os.usuario.domain.Usuario;
 import lombok.RequiredArgsConstructor;
@@ -38,10 +37,9 @@ public class UsuarioInfraRepository implements UsuarioRepository {
 	@Override
 	public Usuario buscaUsuarioPeloId(UUID idUsuario) {
 		log.info("[start] UsuarioInfraRepository - buscaUsuarioPeloId");
-		
-		var usuario = usuarioMogoSpringRepository.findById(idUsuario)
-				.orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Usuário não encontrado!"));
 		log.info("[idUsuario] {}", idUsuario);
+		var usuario = usuarioMogoSpringRepository.findById(idUsuario)
+				.orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Usuário não encontrado!"));		
 		log.info("[finish] UsuarioInfraRepository - buscaUsuarioPeloId");
 		return usuario;
 	}

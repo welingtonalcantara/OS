@@ -44,12 +44,12 @@ public class UsuarioController implements UsuarioApi {
 		return usuario;
 	}
 
-	@Override
-	public void deletaUsuarioAtravesId(UUID idUsuario) {
-		log.info("[start] UsuarioController - deletaUsuarioAtravesId");
-		usuarioService.deletaUsuario(idUsuario);
-		log.info("[finish] UsuarioController - deletaUsuarioAtravesId");
-	}
+//	@Override
+//	public void deletaUsuarioAtravesId(UUID idUsuario) {
+//		log.info("[start] UsuarioController - deletaUsuarioAtravesId");
+//		usuarioService.deletaUsuario(idUsuario);
+//		log.info("[finish] UsuarioController - deletaUsuarioAtravesId");
+//	}
 
 	
 }
