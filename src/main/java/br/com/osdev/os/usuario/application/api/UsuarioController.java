@@ -53,6 +53,13 @@ public class UsuarioController implements UsuarioApi {
 		log.info("[finish] UsuarioController - deletaUsuarioAtravesId");
 	}
 
+	@Override
+	public void atualizaUsuarioComID(UUID idUsuario, @Valid UsuarioRequest usuarioRequest) {
+		log.info("[start] UsuarioController - atualizaUsuarioComID");
+		log.info("[idUsuario] {} - [idSetor] {}", idUsuario, usuarioRequest.getIdMeuSetor());
+		usuarioService.atualizaUsuario(idUsuario, usuarioRequest);
+		log.info("[finish] UsuarioController - atualizaUsuarioComID");		
+	}
+
 		
-	
 }

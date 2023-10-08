@@ -14,5 +14,6 @@ public interface UsuarioService {
 	List<UsuarioSetorListResponse> buscaUsuariosDoSetorComID(UUID idSetor);
 	UsuarioResponse buscaUsuarioPorId(UUID idUsuario);
 	void deletaUsuarioPorId(UUID idUsuario);
-	
+	void atualizaUsuario(UUID idUsuario, @Valid UsuarioRequest usuarioRequest);
+		
 }

@@ -37,4 +37,10 @@ public interface UsuarioApi {
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	void deletaUsuarioAtravesId(@PathVariable UUID idUsuario);	
 
+	@PatchMapping(value = "/{idUsuario}")
+	@ResponseStatus(code = HttpStatus.NO_CONTENT)
+	void atualizaUsuarioComID(@PathVariable UUID idUsuario,
+			@Valid @RequestBody UsuarioRequest usuarioRequest);
+	
+	
 }
