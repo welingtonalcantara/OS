@@ -3,11 +3,17 @@ package br.com.osdev.os.usuario.application.service;
 import java.util.List;
 import java.util.UUID;
 
+import javax.validation.Valid;
+
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import br.com.osdev.os.handler.APIException;
 import br.com.osdev.os.setor.application.service.SetorService;
+import br.com.osdev.os.usuario.application.api.UsuarioAtualizaPerfilRequest;
 import br.com.osdev.os.usuario.application.api.UsuarioRequest;
 import br.com.osdev.os.usuario.application.api.UsuarioResponse;
+import br.com.osdev.os.usuario.domain.TipoUsuario;
 import br.com.osdev.os.usuario.domain.Usuario;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -20,10 +26,10 @@ public class UsuarioApplicationService implements UsuarioService {
 	private final UsuarioRepository usuarioRepository;
 
 	@Override
-	public UsuarioResponse criaUsuario(UUID idSetor, UsuarioRequest usuarioRequest) {
+	public UsuarioResponse criaUsuario(UsuarioRequest usuarioRequest) {
 		log.info("[start] UsuarioApplicationService - criaUsuario");
-		setorService.buscaSetorAtravesId(idSetor);
-		Usuario usuario = usuarioRepository.salvaUsuario(new Usuario(idSetor, usuarioRequest));
+		setorService.buscaSetorAtravesId(usuarioRequest.getIdMeuSetor());
+		Usuario usuario = usuarioRepository.salvaUsuario(new Usuario(usuarioRequest));
 		log.info("[finish] UsuarioApplicationService - criaUsuario");
 		return new UsuarioResponse(usuario);
 	}
@@ -46,11 +52,16 @@ public class UsuarioApplicationService implements UsuarioService {
 		return new UsuarioResponse(usuario);
 	}
 
-//	@Override
-//	public void deletaUsuario(UUID idUsuario) {
-//		log.info("[start] UsuarioApplicationService - deletaUsuario");
-//		log.info("[finish] UsuarioApplicationService - deletaUsuario");
-//	}
+	@Override
+	public void deletaUsuarioPorId(UUID idUsuario) {
+		log.info("[start] UsuarioApplicationService - deletaUsuarioPorId");
+		Usuario usuario = usuarioRepository.buscaUsuarioPeloId(idUsuario);
+		usuarioRepository.deletaUsuario(usuario);
+		log.info("[finish] UsuarioApplicationService - deletaUsuarioPorId");
+	}
+
+	
+	
 
 
 }

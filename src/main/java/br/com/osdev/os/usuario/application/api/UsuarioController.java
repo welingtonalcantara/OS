@@ -3,6 +3,8 @@ package br.com.osdev.os.usuario.application.api;
 import java.util.List;
 import java.util.UUID;
 
+import javax.validation.Valid;
+
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.osdev.os.usuario.application.service.UsuarioService;
@@ -17,12 +19,11 @@ public class UsuarioController implements UsuarioApi {
 	private final UsuarioService usuarioService;
 
 	@Override
-	public UsuarioResponse postUsuario(UUID idSetor, UsuarioRequest usuarioRequest) {
+	public UsuarioResponse postUsuario(UsuarioRequest usuarioRequest) {
 		log.info("[start] UsuarioController - postUsuario");
-		log.info("[idSetor] {}", idSetor);
-		UsuarioResponse usuario = usuarioService.criaUsuario(idSetor, usuarioRequest);
+		log.info("[idSetor] {}", usuarioRequest.getIdMeuSetor());
+		UsuarioResponse usuario = usuarioService.criaUsuario(usuarioRequest);
 		log.info("[finish] UsuarioController - postUsuario");
-		//return new UsuarioResponse(usuario.getIdUsuario());
 		return usuario;
 	}
 
@@ -44,12 +45,14 @@ public class UsuarioController implements UsuarioApi {
 		return usuario;
 	}
 
-//	@Override
-//	public void deletaUsuarioAtravesId(UUID idUsuario) {
-//		log.info("[start] UsuarioController - deletaUsuarioAtravesId");
-//		usuarioService.deletaUsuario(idUsuario);
-//		log.info("[finish] UsuarioController - deletaUsuarioAtravesId");
-//	}
+	@Override
+	public void deletaUsuarioAtravesId(UUID idUsuario) {
+		log.info("[start] UsuarioController - deletaUsuarioAtravesId");
+		log.info("[idUsuario] {}", idUsuario);
+	    usuarioService.deletaUsuarioPorId(idUsuario);
+		log.info("[finish] UsuarioController - deletaUsuarioAtravesId");
+	}
 
+		
 	
 }

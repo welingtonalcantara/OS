@@ -44,4 +44,13 @@ public class UsuarioInfraRepository implements UsuarioRepository {
 		return usuario;
 	}
 
+	@Override
+	public void deletaUsuario(Usuario usuario) {
+		log.info("[start] UsuarioInfraRepository - deletaUsuario");
+		usuarioMogoSpringRepository.delete(usuario);
+		log.info("[finish] UsuarioInfraRepository - deletaUsuario");
+	}
+
+
+
 }

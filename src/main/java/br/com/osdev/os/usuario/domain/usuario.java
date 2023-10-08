@@ -2,6 +2,7 @@ package br.com.osdev.os.usuario.domain;
 
 import java.util.UUID;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -32,14 +33,23 @@ public class Usuario {
 	@Builder.Default
 	private TipoUsuario tipoUsuario = TipoUsuario.CLIENTE;	
 	
-	public Usuario(UUID idSetor, UsuarioRequest usuarioRequest) {
+	public Usuario(UsuarioRequest usuarioRequest) {
 		this.idUsuario = UUID.randomUUID();
-		this.idMeuSetor = idSetor;
+		this.idMeuSetor = usuarioRequest.getIdMeuSetor();
 		this.nome = usuarioRequest.getNome();
 		this.celular = usuarioRequest.getCelular();
 		this.tipoUsuario = TipoUsuario.CLIENTE;
 	}
+
+	public void altera(@Valid UsuarioRequest usuarioRequest) {
+		this.idMeuSetor = usuarioRequest.getIdMeuSetor();
+		this.nome = usuarioRequest.getNome();
+		this.celular = usuarioRequest.getCelular();
+	}
 	
+	public void alteraPerfil(TipoUsuario tipoUsuario) {
+		this.tipoUsuario = tipoUsuario;	
+	}
 	
 }
 
