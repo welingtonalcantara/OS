@@ -25,7 +25,7 @@ public interface SetorApi {
 	@ResponseStatus(code = HttpStatus.OK) 
 	List<SetorListResponse> getTodosSetores();	
 	
-	@GetMapping(value = "{idSetor}")	 
+	@GetMapping(value = "/{idSetor}")	 
 	@ResponseStatus(code = HttpStatus.OK) 
 	SetorResponse buscaSetorAtravesId(@PathVariable UUID idSetor);	 
 	
