@@ -8,7 +8,6 @@ import javax.validation.Valid;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.osdev.ordem_servico.usuario.application.service.UsuarioService;
-import br.com.osdev.ordem_servico.usuario.application.service.UsuarioSetorListResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 

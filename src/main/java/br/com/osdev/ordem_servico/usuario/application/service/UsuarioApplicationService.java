@@ -13,6 +13,8 @@ import br.com.osdev.ordem_servico.setor.application.service.SetorService;
 import br.com.osdev.ordem_servico.usuario.application.api.UsuarioAtualizaPerfilRequest;
 import br.com.osdev.ordem_servico.usuario.application.api.UsuarioRequest;
 import br.com.osdev.ordem_servico.usuario.application.api.UsuarioResponse;
+import br.com.osdev.ordem_servico.usuario.application.api.UsuarioSetorListResponse;
+import br.com.osdev.ordem_servico.usuario.application.repository.UsuarioRepository;
 import br.com.osdev.ordem_servico.usuario.domain.TipoUsuario;
 import br.com.osdev.ordem_servico.usuario.domain.Usuario;
 import lombok.RequiredArgsConstructor;

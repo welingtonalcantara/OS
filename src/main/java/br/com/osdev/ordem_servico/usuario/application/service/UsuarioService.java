@@ -8,6 +8,7 @@ import javax.validation.Valid;
 import br.com.osdev.ordem_servico.usuario.application.api.UsuarioAtualizaPerfilRequest;
 import br.com.osdev.ordem_servico.usuario.application.api.UsuarioRequest;
 import br.com.osdev.ordem_servico.usuario.application.api.UsuarioResponse;
+import br.com.osdev.ordem_servico.usuario.application.api.UsuarioSetorListResponse;
 
 public interface UsuarioService {
 	UsuarioResponse criaUsuario(UsuarioRequest usuarioRequest);

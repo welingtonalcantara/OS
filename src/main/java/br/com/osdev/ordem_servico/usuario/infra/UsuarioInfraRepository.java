@@ -7,7 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
 import br.com.osdev.ordem_servico.handler.APIException;
-import br.com.osdev.ordem_servico.usuario.application.service.UsuarioRepository;
+import br.com.osdev.ordem_servico.usuario.application.repository.UsuarioRepository;
 import br.com.osdev.ordem_servico.usuario.domain.Usuario;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
