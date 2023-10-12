@@ -33,7 +33,8 @@ public class OrdemServico {
 	private UUID idSolicitante;	
 	@NotBlank
 	private String nomeSolicitante;
-	private Status status;
+	@Builder.Default
+	private Status status = Status.ABERTO;
 	private LocalDate dataDaAbertura;
 	private LocalDate dataDoEncerramento;
 	@NotBlank
