@@ -22,7 +22,7 @@ import lombok.NoArgsConstructor;
 @Document(collection = "OrdemServico")
 public class OrdemServico {
 	@Id
-	private UUID idOS;
+	private UUID idOrdemServico;
 	@NotNull
 	private UUID idSetorSolicitante;
 	@NotBlank

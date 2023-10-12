@@ -6,18 +6,25 @@ import javax.validation.Valid;
 
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.osdev.ordem_servico.os.application.service.OrdemServicoService;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
 @RestController
 @Log4j2
+@RequiredArgsConstructor
 public class OrdemServicoController implements OrdemServicoAPI {
+	private final OrdemServicoService ordemServicoService;
 
 	@Override
 	public OrdemServicoResponse criaOrdemServico(UUID idUsuario, @Valid OrdemServicoRequest ordemServicoRequest) {
 		log.info("[start] OrdemServicoController - criaOrdemServico");
 		log.info("[idUsuario] {}", idUsuario);
+		//OrdemServico ordemServico = ordemServicoService.criaOS(idUsuario, ordemServicoRequest);
+		OrdemServicoResponse ordemServico = ordemServicoService.criaOS(idUsuario, ordemServicoRequest);
 		log.info("[finish] OrdemServicoController - criaOrdemServico");
-		return null;
+		//return new OrdemServicoResponse(ordemServico.getIdOrdemServico());
+		return ordemServico;
 	}
 
 }
