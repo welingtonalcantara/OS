@@ -1,5 +1,6 @@
 package br.com.osdev.ordem_servico.os.application.api;
 
+import java.util.List;
 import java.util.UUID;
 
 import javax.validation.Valid;
@@ -25,6 +26,14 @@ public class OrdemServicoController implements OrdemServicoAPI {
 		log.info("[finish] OrdemServicoController - criaOrdemServico");
 		//return new OrdemServicoResponse(ordemServico.getIdOrdemServico());
 		return ordemServico;
+	}
+
+	@Override
+	public List<OrdemServicoSetorListResponse> getOrdemServicoPorSetorUsuario(UUID idUsuario) {
+		log.info("[start] OrdemServicoController - getOrdemServicoPorSetorUsuario");
+		log.info("[idUsuario] {}", idUsuario);
+		log.info("[finish] OrdemServicoController - getOrdemServicoPorSetorUsuario");
+		return null;
 	}
 
 }
