@@ -3,12 +3,14 @@ package br.com.osdev.ordem_servico.os.domain;
 import java.time.LocalDate;
 import java.util.UUID;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import br.com.osdev.ordem_servico.os.application.api.OrdemServicoRequest;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,7 +22,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Getter
 @Document(collection = "OrdemServico")
-public class OrdemServico {
+public class OrdemServico {	
 	@Id
 	private UUID idOrdemServico;
 	@NotNull
@@ -40,4 +42,16 @@ public class OrdemServico {
 	@NotBlank
 	private String DescricaDoProblema;
 	private String ServicoExecutado;	
+	
+	public OrdemServico(UUID idUsuario, @Valid OrdemServicoRequest ordemServicoRequest) {
+		this.idOrdemServico =  UUID.randomUUID();
+		this.idSetorSolicitante = ordemServicoRequest.getIdSetorSolicitante();
+		this.nomeSetor = ordemServicoRequest.getNomeSetor();
+		this.endereco = ordemServicoRequest.getEndereco();
+		this.idSolicitante = ordemServicoRequest.getIdSetorSolicitante();
+		this.nomeSolicitante = ordemServicoRequest.getNomeSolicitante();
+		this.status = Status.ABERTO;
+		this.dataDaAbertura = LocalDate.now();	
+		DescricaDoProblema = ordemServicoRequest.getDescricaDoProblema();		
+	}
 }
