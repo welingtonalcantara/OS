@@ -20,9 +20,9 @@ public interface OrdemServicoAPI {
 	OrdemServicoResponse criaOrdemServico(@PathVariable UUID idUsuario,
 			@Valid @RequestBody OrdemServicoRequest ordemServicoRequest);
 	
-	@GetMapping
+	@GetMapping(value = "/setor/{idSetor}")
 	@ResponseStatus(code = HttpStatus.OK) 
-	List<OrdemServicoSetorListResponse> getOrdemServicoPorSetorUsuario(@PathVariable UUID idUsuario);	
+	List<OrdemServicoSetorListResponse> getOrdemServicoPorSetorUsuario(@PathVariable UUID idUsuario, @PathVariable UUID idSetor);	
 	
 	
 }

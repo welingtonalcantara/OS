@@ -1,5 +1,8 @@
 package br.com.osdev.ordem_servico.os.infra;
 
+import java.util.List;
+import java.util.UUID;
+
 import org.springframework.stereotype.Repository;
 
 import br.com.osdev.ordem_servico.os.application.service.OrdemServicoRespository;
@@ -19,6 +22,13 @@ public class OrdemServicoInfraRepository implements OrdemServicoRespository {
 		ordemServicoMogoSpringRepository.save(ordemServico);
 		log.info("[start] OrdemServicoInfraRepository - salvaOrdemServico");
 		return ordemServico;
+	}
+
+	@Override
+	public List<OrdemServico> buscaOrdemServicoSetor(UUID idSetor) {
+		log.info("[start] OrdemServicoInfraRepository - buscaOrdemServicoSetor");
+		log.info("[finish] OrdemServicoInfraRepository - buscaOrdemServicoSetor");
+		return null;
 	}
 
 }

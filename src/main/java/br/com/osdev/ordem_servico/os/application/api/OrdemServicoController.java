@@ -29,11 +29,12 @@ public class OrdemServicoController implements OrdemServicoAPI {
 	}
 
 	@Override
-	public List<OrdemServicoSetorListResponse> getOrdemServicoPorSetorUsuario(UUID idUsuario) {
+	public List<OrdemServicoSetorListResponse> getOrdemServicoPorSetorUsuario(UUID idUsuario, UUID idSetor) {
 		log.info("[start] OrdemServicoController - getOrdemServicoPorSetorUsuario");
 		log.info("[idUsuario] {}", idUsuario);
+		List<OrdemServicoSetorListResponse> OrdemServicoSetor = ordemServicoService.buscaOrdemServicoSetor(idUsuario, idSetor);
 		log.info("[finish] OrdemServicoController - getOrdemServicoPorSetorUsuario");
-		return null;
+		return OrdemServicoSetor;
 	}
 
 }

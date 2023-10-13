@@ -1,15 +1,21 @@
 package br.com.osdev.ordem_servico.os.application.service;
 
+import java.util.List;
 import java.util.UUID;
 
 import javax.validation.Valid;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
+import br.com.osdev.ordem_servico.handler.APIException;
 import br.com.osdev.ordem_servico.os.application.api.OrdemServicoRequest;
 import br.com.osdev.ordem_servico.os.application.api.OrdemServicoResponse;
+import br.com.osdev.ordem_servico.os.application.api.OrdemServicoSetorListResponse;
 import br.com.osdev.ordem_servico.os.domain.OrdemServico;
+import br.com.osdev.ordem_servico.usuario.application.repository.UsuarioRepository;
 import br.com.osdev.ordem_servico.usuario.application.service.UsuarioService;
+import br.com.osdev.ordem_servico.usuario.domain.Usuario;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 
@@ -19,6 +25,7 @@ import lombok.extern.log4j.Log4j2;
 public class OrdemServicoApplicationService implements OrdemServicoService {
 	private final UsuarioService usuarioservice;
 	private final OrdemServicoRespository OrdemServicoRespository;
+	private final UsuarioRepository usuarioRepository;
 
 	@Override
 	public OrdemServicoResponse criaOS(UUID idUsuario, @Valid OrdemServicoRequest ordemServicoRequest) {
@@ -28,6 +35,26 @@ public class OrdemServicoApplicationService implements OrdemServicoService {
 		log.info("[finish] OrdemServicoApplicationService - criaOS");
 		//return new OrdemServicoResponse(ordemServico.getIdOrdemServico());
 		return new OrdemServicoResponse(ordemServico);
+	}
+
+	@Override
+	public List<OrdemServicoSetorListResponse> buscaOrdemServicoSetor(UUID idUsuario, UUID idSetor) {
+		log.info("[start] OrdemServicoApplicationService - buscaOrdemServicoSetor");
+		Usuario usuarioSetor = usuarioRepository.buscaUsuarioPeloId(idUsuario);
+		//List<OrdemServico> OrdemServicoSetor = 
+		if(!idSetor.equals(usuarioSetor.getIdMeuSetor())) {
+			throw APIException.build(HttpStatus.NOT_FOUND, "Este usuário não pertence ao setor da OS!");
+		}
+		List<OrdemServico> ordemServicoSetor = OrdemServicoRespository.buscaOrdemServicoSetor(idSetor);
+//		if(!TipoUsuario.ADM.equals(usuarioSetor.getTipoUsuario())) {
+//			throw APIException.build(HttpStatus.NOT_FOUND, "Usuário não é Administrador!");
+//		}
+//		Usuario usuario = usuarioRepository.buscaUsuarioPeloId(usuarioRequest.getIdUsuario());
+//		usuario.alteraPerfil(usuarioRequest.getTipoUsuario());
+//		usuarioRepository.salvaUsuario(usuario);
+		
+		log.info("[start] OrdemServicoApplicationService - buscaOrdemServicoSetor");
+		return OrdemServicoSetorListResponse.converte(ordemServicoSetor);
 	}
 
 }
