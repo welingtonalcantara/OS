@@ -46,13 +46,6 @@ public class OrdemServicoApplicationService implements OrdemServicoService {
 			throw APIException.build(HttpStatus.NOT_FOUND, "Este usuário não pertence ao setor da OS!");
 		}
 		List<OrdemServico> ordemServicoSetor = OrdemServicoRespository.buscaOrdemServicoSetor(idSetor);
-//		if(!TipoUsuario.ADM.equals(usuarioSetor.getTipoUsuario())) {
-//			throw APIException.build(HttpStatus.NOT_FOUND, "Usuário não é Administrador!");
-//		}
-//		Usuario usuario = usuarioRepository.buscaUsuarioPeloId(usuarioRequest.getIdUsuario());
-//		usuario.alteraPerfil(usuarioRequest.getTipoUsuario());
-//		usuarioRepository.salvaUsuario(usuario);
-		
 		log.info("[start] OrdemServicoApplicationService - buscaOrdemServicoSetor");
 		return OrdemServicoSetorListResponse.converte(ordemServicoSetor);
 	}
