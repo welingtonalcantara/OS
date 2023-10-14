@@ -27,8 +27,9 @@ public class OrdemServicoInfraRepository implements OrdemServicoRespository {
 	@Override
 	public List<OrdemServico> buscaOrdemServicoSetor(UUID idSetor) {
 		log.info("[start] OrdemServicoInfraRepository - buscaOrdemServicoSetor");
+		var ordensServico = ordemServicoMogoSpringRepository.findByIdSetorSolicitante(idSetor);
 		log.info("[finish] OrdemServicoInfraRepository - buscaOrdemServicoSetor");
-		return null;
+		return ordensServico;
 	}
 
 }
