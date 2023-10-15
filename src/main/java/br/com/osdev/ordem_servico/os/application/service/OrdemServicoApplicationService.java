@@ -58,8 +58,9 @@ public class OrdemServicoApplicationService implements OrdemServicoService {
 		if(!idSetor.equals(usuarioSetor.getIdMeuSetor())) {
 			throw APIException.build(HttpStatus.NOT_FOUND, "Este usuário não pertence ao setor da OS!");
 		}
+		OrdemServico ordemServico = OrdemServicoRespository.buscaOrdemServicoComId(idUsuario);
 		log.info("[finish] OrdemServicoApplicationService - buscaOrdemServicoComId");
-		return null;
+		return new OrdemServicoDetalhadaResponse(ordemServico);
 	}
 
 }

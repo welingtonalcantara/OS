@@ -3,8 +3,10 @@ package br.com.osdev.ordem_servico.os.infra;
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
+import br.com.osdev.ordem_servico.handler.APIException;
 import br.com.osdev.ordem_servico.os.application.repository.OrdemServicoRespository;
 import br.com.osdev.ordem_servico.os.domain.OrdemServico;
 import lombok.RequiredArgsConstructor;
@@ -31,6 +33,15 @@ public class OrdemServicoInfraRepository implements OrdemServicoRespository {
 		log.info("[finish] OrdemServicoInfraRepository - buscaOrdemServicoSetor");
 		return ordensServico;
 		
+	}
+
+	@Override
+	public OrdemServico buscaOrdemServicoComId(UUID idUsuario) {
+		log.info("[start] OrdemServicoInfraRepository - buscaOrdemServicoComId");
+		var ordenServico = ordemServicoMogoSpringRepository.findById(idUsuario)
+				.orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Ordem de serviço não encontrada para o id = " + idUsuario));
+		log.info("[finish] OrdemServicoInfraRepository - buscaOrdemServicoComId");
+		return ordenServico;
 	}
 
 }
