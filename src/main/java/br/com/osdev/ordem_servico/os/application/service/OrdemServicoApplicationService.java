@@ -52,15 +52,15 @@ public class OrdemServicoApplicationService implements OrdemServicoService {
 	}
 
 	@Override
-	public OrdemServicoDetalhadaResponse buscaOrdemServicoComId(UUID idUsuario, UUID idOrdemServico, UUID idSetor) {
+	public OrdemServicoResponse buscaOrdemServicoComId(UUID idUsuario, UUID idOrdemServico, UUID idSetor) {
 		log.info("[start] OrdemServicoApplicationService - buscaOrdemServicoComId");
 		Usuario usuarioSetor = usuarioRepository.buscaUsuarioPeloId(idUsuario);
 		if(!idSetor.equals(usuarioSetor.getIdMeuSetor())) {
 			throw APIException.build(HttpStatus.NOT_FOUND, "Este usuário não pertence ao setor da OS!");
 		}
-		OrdemServico ordemServico = OrdemServicoRespository.buscaOrdemServicoComId(idUsuario);
+		OrdemServico ordemServico = OrdemServicoRespository.buscaOrdemServicoComId(idOrdemServico);
 		log.info("[finish] OrdemServicoApplicationService - buscaOrdemServicoComId");
-		return new OrdemServicoDetalhadaResponse(ordemServico);
+		return new OrdemServicoResponse(ordemServico);
 	}
 
 }

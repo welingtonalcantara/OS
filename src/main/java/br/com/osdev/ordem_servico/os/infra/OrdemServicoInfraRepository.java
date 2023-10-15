@@ -36,10 +36,11 @@ public class OrdemServicoInfraRepository implements OrdemServicoRespository {
 	}
 
 	@Override
-	public OrdemServico buscaOrdemServicoComId(UUID idUsuario) {
+	public OrdemServico buscaOrdemServicoComId(UUID idOrdemServico) {
 		log.info("[start] OrdemServicoInfraRepository - buscaOrdemServicoComId");
-		var ordenServico = ordemServicoMogoSpringRepository.findById(idUsuario)
-				.orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Ordem de serviço não encontrada para o id = " + idUsuario));
+		log.info("[idOrdemServico] {}", idOrdemServico);
+		var ordenServico = ordemServicoMogoSpringRepository.findById(idOrdemServico)
+				.orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Ordem de serviço não encontrada para o id = " + idOrdemServico));
 		log.info("[finish] OrdemServicoInfraRepository - buscaOrdemServicoComId");
 		return ordenServico;
 	}

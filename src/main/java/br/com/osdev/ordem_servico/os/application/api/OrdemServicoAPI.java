@@ -26,7 +26,7 @@ public interface OrdemServicoAPI {
 	
 	@GetMapping(value = "/{idOrdemServico}/setor/{idSetor}")
 	@ResponseStatus(code = HttpStatus.OK)
-	OrdemServicoDetalhadaResponse getOrdemServicoComId (@PathVariable UUID idUsuario, @PathVariable UUID idOrdemServico, @PathVariable UUID idSetor);
+	OrdemServicoResponse getOrdemServicoComId (@PathVariable UUID idUsuario, @PathVariable UUID idOrdemServico, @PathVariable UUID idSetor);
 	
 	
 	

@@ -38,10 +38,10 @@ public class OrdemServicoController implements OrdemServicoAPI {
 	}
 
 	@Override
-	public OrdemServicoDetalhadaResponse getOrdemServicoComId(UUID idUsuario,UUID idSetor, UUID idOrdemServico) {
+	public OrdemServicoResponse getOrdemServicoComId(UUID idUsuario,UUID idSetor, UUID idOrdemServico) {
 		log.info("[start] OrdemServicoController - getOrdemServicoComId");
 		log.info("[idUsuario] {} - [idordemServico] {}", idUsuario, idOrdemServico);
-		OrdemServicoDetalhadaResponse ordemSevico = ordemServicoService.buscaOrdemServicoComId(idUsuario, idOrdemServico, idSetor);
+		OrdemServicoResponse ordemSevico = ordemServicoService.buscaOrdemServicoComId(idUsuario, idOrdemServico, idSetor);
 		log.info("[finish] OrdemServicoController - getOrdemServicoComId");
 		return ordemSevico;
 	}

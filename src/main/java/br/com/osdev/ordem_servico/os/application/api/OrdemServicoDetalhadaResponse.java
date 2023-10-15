@@ -12,10 +12,9 @@ public class OrdemServicoDetalhadaResponse {
 	private String endereco;	
 	private String nomeSolicitante;
 	private Status status;
-	private LocalDate dataDaAbertura;
-	private LocalDate dataDoEncerramento;
+	private LocalDate dataDaAbertura;	
 	private String DescricaDoProblema;
-	private String ServicoExecutado;
+	
 	
 	public OrdemServicoDetalhadaResponse(OrdemServico ordemServico) {
 		this.idOrdemServico = ordemServico.getIdOrdemServico();		
@@ -23,9 +22,8 @@ public class OrdemServicoDetalhadaResponse {
 		this.endereco = ordemServico.getEndereco();		
 		this.nomeSolicitante = ordemServico.getNomeSolicitante();
 		this.status = ordemServico.getStatus();
-		this.dataDaAbertura = ordemServico.getDataDaAbertura();
-		this.dataDoEncerramento = ordemServico.getDataDoEncerramento();
+		this.dataDaAbertura = ordemServico.getDataDaAbertura();		
 		DescricaDoProblema = ordemServico.getDescricaDoProblema();
-		ServicoExecutado = ordemServico.getServicoExecutado();
+		
 	}
 }
