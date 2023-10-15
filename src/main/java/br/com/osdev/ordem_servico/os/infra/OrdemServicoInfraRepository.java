@@ -5,7 +5,7 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Repository;
 
-import br.com.osdev.ordem_servico.os.application.service.OrdemServicoRespository;
+import br.com.osdev.ordem_servico.os.application.repository.OrdemServicoRespository;
 import br.com.osdev.ordem_servico.os.domain.OrdemServico;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;

@@ -9,9 +9,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import br.com.osdev.ordem_servico.handler.APIException;
+import br.com.osdev.ordem_servico.os.application.api.OrdemServicoDetalhadaResponse;
 import br.com.osdev.ordem_servico.os.application.api.OrdemServicoRequest;
 import br.com.osdev.ordem_servico.os.application.api.OrdemServicoResponse;
 import br.com.osdev.ordem_servico.os.application.api.OrdemServicoSetorListResponse;
+import br.com.osdev.ordem_servico.os.application.repository.OrdemServicoRespository;
 import br.com.osdev.ordem_servico.os.domain.OrdemServico;
 import br.com.osdev.ordem_servico.usuario.application.repository.UsuarioRepository;
 import br.com.osdev.ordem_servico.usuario.application.service.UsuarioService;
@@ -41,13 +43,23 @@ public class OrdemServicoApplicationService implements OrdemServicoService {
 	public List<OrdemServicoSetorListResponse> buscaOrdemServicoSetor(UUID idUsuario, UUID idSetor) {
 		log.info("[start] OrdemServicoApplicationService - buscaOrdemServicoSetor");
 		Usuario usuarioSetor = usuarioRepository.buscaUsuarioPeloId(idUsuario);
-		//List<OrdemServico> OrdemServicoSetor = 
 		if(!idSetor.equals(usuarioSetor.getIdMeuSetor())) {
 			throw APIException.build(HttpStatus.NOT_FOUND, "Este usuário não pertence ao setor da OS!");
 		}
 		List<OrdemServico> ordemServicoSetor = OrdemServicoRespository.buscaOrdemServicoSetor(idSetor);
 		log.info("[start] OrdemServicoApplicationService - buscaOrdemServicoSetor");
 		return OrdemServicoSetorListResponse.converte(ordemServicoSetor);
+	}
+
+	@Override
+	public OrdemServicoDetalhadaResponse buscaOrdemServicoComId(UUID idUsuario, UUID idOrdemServico, UUID idSetor) {
+		log.info("[start] OrdemServicoApplicationService - buscaOrdemServicoComId");
+		Usuario usuarioSetor = usuarioRepository.buscaUsuarioPeloId(idUsuario);
+		if(!idSetor.equals(usuarioSetor.getIdMeuSetor())) {
+			throw APIException.build(HttpStatus.NOT_FOUND, "Este usuário não pertence ao setor da OS!");
+		}
+		log.info("[finish] OrdemServicoApplicationService - buscaOrdemServicoComId");
+		return null;
 	}
 
 }

@@ -1,4 +1,4 @@
-package br.com.osdev.ordem_servico.os.application.service;
+package br.com.osdev.ordem_servico.os.application.repository;
 
 import java.util.List;
 import java.util.UUID;
