@@ -30,6 +30,7 @@ public class OrdemServicoInfraRepository implements OrdemServicoRespository {
 		var ordensServico = ordemServicoMogoSpringRepository.findByIdSetorSolicitante(idSetor);
 		log.info("[finish] OrdemServicoInfraRepository - buscaOrdemServicoSetor");
 		return ordensServico;
+		
 	}
 
 }

@@ -37,4 +37,12 @@ public class OrdemServicoController implements OrdemServicoAPI {
 		return OrdemServicoSetor;
 	}
 
+	@Override
+	public OrdemServicoDetalhadaResponse getOrdemServicoComId(UUID idUsuario, UUID idordemServico) {
+		log.info("[start] OrdemServicoController - getOrdemServicoComId");
+		log.info("[idUsuario] {} - [idordemServico] {}", idUsuario, idordemServico);
+		log.info("[finish] OrdemServicoController - getOrdemServicoComId");
+		return null;
+	}
+
 }
