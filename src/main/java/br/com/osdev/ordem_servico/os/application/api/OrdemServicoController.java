@@ -51,7 +51,7 @@ public class OrdemServicoController implements OrdemServicoAPI {
 			@Valid OrdemServicoAltercaopRequest ordemServicoAlteracaoRequest) {
 		log.info("[start] OrdemServicoController - atualizarOrdemServico");
 		log.info("[idUsuario] {} - [idordemServico] {}", idUsuario, idOrdemServico);
-		
+		ordemServicoService.alteraOrdemservico(idUsuario, idOrdemServico);
 		log.info("[finish] OrdemServicoController - atualizarOrdemServico");
 	}
 

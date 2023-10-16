@@ -13,5 +13,6 @@ import br.com.osdev.ordem_servico.os.application.api.OrdemServicoSetorListRespon
 public interface OrdemServicoService {
 	OrdemServicoResponse criaOS(UUID idUsuario, @Valid OrdemServicoRequest ordemServicoRequest);
 	List<OrdemServicoSetorListResponse> buscaOrdemServicoSetor(UUID idUsuario, UUID idSetor);
-	OrdemServicoResponse buscaOrdemServicoComId(UUID idUsuario, UUID idOrdemServico, UUID idSetor);	
+	OrdemServicoResponse buscaOrdemServicoComId(UUID idUsuario, UUID idOrdemServico, UUID idSetor);
+	void alteraOrdemservico(UUID idUsuario, UUID idOrdemServico);	
 }

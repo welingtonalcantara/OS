@@ -63,4 +63,10 @@ public class OrdemServicoApplicationService implements OrdemServicoService {
 		return new OrdemServicoResponse(ordemServico);
 	}
 
+	@Override
+	public void alteraOrdemservico(UUID idUsuario, UUID idOrdemServico) {
+		log.info("[start] OrdemServicoApplicationService - alteraOrdemservico");
+		log.info("[finish] OrdemServicoApplicationService - alteraOrdemservico");
+	}
+
 }
