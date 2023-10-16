@@ -42,6 +42,7 @@ public class OrdemServico {
 	@NotBlank
 	private String DescricaDoProblema;
 	private String ServicoExecutado;	
+	private String tecnico;
 	
 	public OrdemServico(UUID idUsuario, @Valid OrdemServicoRequest ordemServicoRequest) {
 		this.idOrdemServico =  UUID.randomUUID();

@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,6 +29,9 @@ public interface OrdemServicoAPI {
 	@ResponseStatus(code = HttpStatus.OK)
 	OrdemServicoResponse getOrdemServicoComId (@PathVariable UUID idUsuario, @PathVariable UUID idOrdemServico, @PathVariable UUID idSetor);
 	
-	
+	@PatchMapping(value = "/{idOrdemServico}")
+	@ResponseStatus(code = HttpStatus.NO_CONTENT)
+	void atualizarOrdemServico(@PathVariable UUID idUsuario, UUID idOrdemServico, 
+			@Valid @RequestBody OrdemServicoAltercaopRequest ordemServicoAlteracaoRequest);
 	
 }

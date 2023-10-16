@@ -38,12 +38,23 @@ public class OrdemServicoController implements OrdemServicoAPI {
 	}
 
 	@Override
-	public OrdemServicoResponse getOrdemServicoComId(UUID idUsuario,UUID idSetor, UUID idOrdemServico) {
+	public OrdemServicoResponse getOrdemServicoComId(UUID idUsuario, UUID idSetor, UUID idOrdemServico) {
 		log.info("[start] OrdemServicoController - getOrdemServicoComId");
 		log.info("[idUsuario] {} - [idordemServico] {}", idUsuario, idOrdemServico);
 		OrdemServicoResponse ordemSevico = ordemServicoService.buscaOrdemServicoComId(idUsuario, idOrdemServico, idSetor);
 		log.info("[finish] OrdemServicoController - getOrdemServicoComId");
 		return ordemSevico;
 	}
+
+	@Override
+	public void atualizarOrdemServico(UUID idUsuario, UUID idOrdemServico,
+			@Valid OrdemServicoAltercaopRequest ordemServicoAlteracaoRequest) {
+		log.info("[start] OrdemServicoController - atualizarOrdemServico");
+		log.info("[idUsuario] {} - [idordemServico] {}", idUsuario, idOrdemServico);
+		
+		log.info("[finish] OrdemServicoController - atualizarOrdemServico");
+	}
+
+	
 
 }
